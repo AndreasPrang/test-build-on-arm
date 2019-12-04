@@ -3,7 +3,7 @@ name: Docker Image CI
 on: [push]
 
 jobs:
-  build:
+  build1:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
@@ -11,7 +11,7 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 jobs:
-  build:
+  build2:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
@@ -19,7 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 jobs:
-  build:
+  build3:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
