@@ -3,4 +3,4 @@
 # ENTRYPOINT ["mysql"]
 
 FROM amd64/swift
-RUN swift build
+# RUN swift build
