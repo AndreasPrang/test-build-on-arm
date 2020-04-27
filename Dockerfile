@@ -1,7 +1,7 @@
 # Dockerfile for Raspberry Pi 3
 
 # The build container for building the Swift app from source
-FROM wlisac/raspberrypi3-swift:5.1-build AS build
+FROM wlisac/armv7hf-swift:5.1-build AS build
 
 WORKDIR /app
 
