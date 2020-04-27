@@ -2,6 +2,4 @@
 # RUN apk add --no-cache mysql-client
 # ENTRYPOINT ["mysql"]
 
-FROM apline
-RUN ls
-# RUN swift build
+FROM amd64/swift
