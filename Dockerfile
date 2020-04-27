@@ -1,5 +1,19 @@
-# FROM alpine:3.7
-# RUN apk add --no-cache mysql-client
-# ENTRYPOINT ["mysql"]
+# Dockerfile for Raspberry Pi 3
 
-FROM amd64/swift
+# The build container for building the Swift app from source
+FROM wlisac/raspberrypi3-swift:5.1-build AS build
+
+WORKDIR /app
+
+COPY . ./
+
+RUN swift build --jobs 1
+
+# The run container that will go to devices
+FROM wlisac/raspberrypi3-swift:5.1-run
+
+WORKDIR /app
+
+COPY --from=build /app/.build/debug/Hello .
+
+CMD ["./Hello"]
